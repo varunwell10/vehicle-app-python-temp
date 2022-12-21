@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
-  build:1
+  build:
     commands:
       - echo Build started on `date`
       - mkdir target
