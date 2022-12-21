@@ -4,10 +4,10 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - pip install -r requirements-dev.txt
-      - pip install -r app/requirements-links.txt
-      - pip install -r app/requirements-app.txt
-      - pip install -r app/tests/requirements-tests.txt
+      - pip3 install -r requirements-dev.txt
+      - pip3 install -r app/requirements-links.txt
+      - pip3 install -r app/requirements-app.txt
+      - pip3 install -r app/tests/requirements-tests.txt
       - echo done with the install phase...
   pre_build:
     commands:
