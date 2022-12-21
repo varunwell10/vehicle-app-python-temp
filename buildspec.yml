@@ -1,10 +1,7 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      python: 3.10
     commands:
-      - pip3 install --upgrade pip
       - pip3 install -r requirements-dev.txt
       - pip3 install -r app/requirements-links.txt
       - pip3 install -r app/requirements-app.txt
