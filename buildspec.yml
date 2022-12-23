@@ -21,6 +21,7 @@ phases:
       - coverage2clover -i results/CodeCoverage/cobertura-coverage.xml -o results/CodeCoverage/clover.xml
       - coveragepy-lcov --data_file_path ./.coverage --output_file_path results/CodeCoverage/lcov.info
       - echo Building docker image now
+      - systemctl start docker
       - cd .devcontainer/
       - docker build .
       - echo Build completed on `date`
