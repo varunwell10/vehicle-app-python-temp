@@ -1,7 +1,6 @@
 version: 0.2
 phases:
   install:
-  runtime-versions:
     commands: 
       - pip3 install -r requirements-dev.txt
       - pip3 install -r app/requirements-links.txt
