@@ -1,7 +1,11 @@
 version: 0.2
 phases:
   install:
-    commands:
+  runtime-versions:
+        docker: 20     
+    commands: 
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
       - pip3 install -r requirements-dev.txt
       - pip3 install -r app/requirements-links.txt
       - pip3 install -r app/requirements-app.txt
@@ -21,8 +25,6 @@ phases:
       - coverage2clover -i results/CodeCoverage/cobertura-coverage.xml -o results/CodeCoverage/clover.xml
       - coveragepy-lcov --data_file_path ./.coverage --output_file_path results/CodeCoverage/lcov.info
       - echo Building docker image now
-      - sudo yum install docker
-      - sudo service docker start
       - cd .devcontainer/
       - docker build .
       - echo Build completed on `date`
