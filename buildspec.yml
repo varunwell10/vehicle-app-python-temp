@@ -22,9 +22,11 @@ phases:
       - coveragepy-lcov --data_file_path ./.coverage --output_file_path results/CodeCoverage/lcov.info
       - echo Building docker image now
       - cd .devcontainer/
-      - docker build -t getting-started
+      - docker build
       - echo Build completed on `date`
 artifacts:
   files:
     - target/date.out
     - build/*
+    - ./results/*
+    - .app/tests/*
