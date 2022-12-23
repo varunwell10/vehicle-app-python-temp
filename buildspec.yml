@@ -22,11 +22,12 @@ phases:
       - coveragepy-lcov --data_file_path ./.coverage --output_file_path results/CodeCoverage/lcov.info
       - echo Building docker image now
       - cd .devcontainer/
-      - docker build .
+      - docker build -t 010527020111.dkr.ecr.us-east-1.amazonaws.com/eclipsevelocitas:latest .
+      - sudo docker push 010527020111.dkr.ecr.us-east-1.amazonaws.com/eclipsevelocitas:latest
       - echo Build completed on `date`
 artifacts:
   files:
     - target/date.out
-    - build/*
-    - ./results/*
+    - /codebuild/output/*
+    - /results/*
     - .app/tests/*
