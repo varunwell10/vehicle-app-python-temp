@@ -21,6 +21,7 @@ phases:
       - coverage2clover -i results/CodeCoverage/cobertura-coverage.xml -o results/CodeCoverage/clover.xml
       - coveragepy-lcov --data_file_path ./.coverage --output_file_path results/CodeCoverage/lcov.info
       - echo Building docker image now
+      - sudo yum install docker
       - sudo service docker start
       - cd .devcontainer/
       - docker build .
